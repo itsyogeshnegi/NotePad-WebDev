@@ -73,7 +73,7 @@ const updateNote = async (req, res) => {
         content: req.body.content.trim(),
       },
       {
-        new: true,
+        returnDocument: "after", // ✅ updated
         runValidators: true,
       }
     );
