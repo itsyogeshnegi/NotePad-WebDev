@@ -3,10 +3,12 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const noteRoutes = require("./routes/noteRoutes");
 const { swaggerUi, swaggerSpec } = require("./config/swagger");
+const requestLogger = require("./middlewares/requestLogger");
 
 const app = express();
 
 app.use(cors());
+app.use(requestLogger);
 app.use(express.json());
 
 app.get("/", (req, res) => {
